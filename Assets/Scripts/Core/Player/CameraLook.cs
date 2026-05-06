@@ -21,7 +21,7 @@ namespace Atypiki.Core
 
         private void FixedUpdate()
         {
-            Look();
+            //Look();
         }
 
         private void Look()

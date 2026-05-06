@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: walkState
   m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.MovementState.State.PlayerRunState
   maxSpeed: 7
-  acceleration: 8
+  acceleration: 30
   deceleration: 3
-  stopForce: 30
+  stopForce: 100

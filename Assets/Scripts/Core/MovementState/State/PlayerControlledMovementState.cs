@@ -52,7 +52,24 @@ namespace Atypiki.Core.Core.MovementState.State
         protected virtual Vector3 GetTargetDirection(PlayerMovement controller)
         {
             Vector2 input = moveAction.ReadValue<Vector2>();
-            Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
+            Transform cam = Camera.main.transform;
+
+            // Flatten camera vectors (ignore vertical tilt)
+            Vector3 camForward = cam.forward;
+            Vector3 camRight = cam.right;
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            camForward.Normalize();
+            camRight.Normalize();
+
+            // Build movement direction relative to camera
+            Vector3 direction = camRight * input.x + camForward * input.y;
+
+            // Prevent faster diagonal movement
+            if (direction.sqrMagnitude > 1f)
+                direction.Normalize();
+
             return direction;
         }
         
