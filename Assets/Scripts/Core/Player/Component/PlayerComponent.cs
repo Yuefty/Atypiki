@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Atypiki.Core
 {
+    /*
+     * This class allow access to PlayerManager
+     */
     public class PlayerComponent : MonoBehaviour
     {
         

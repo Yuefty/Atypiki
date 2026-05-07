@@ -14,9 +14,10 @@ namespace Atypiki.Core
 
         private void Start()
         {
-            // Lock cursor for FPS/TPS control
+            // Lock cursor for TPS control
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // Hide the cursor
+            Cursor.visible = false; 
         }
 
         private void FixedUpdate()

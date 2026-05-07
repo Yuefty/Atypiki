@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Atypiki.Core.Core.MovementState
 {
+    /*
+     * This class compute velocity and handle movement state
+     */
     [RequireComponent(typeof(CapsuleCollider))]
     public abstract class MovementController<T> : MonoBehaviour where T : MovementController<T>
     { 
@@ -39,7 +42,7 @@ namespace Atypiki.Core.Core.MovementState
             this.cc = GetComponent<CapsuleCollider>();
             _movementStates = new List<IMovementState<T>>();
         }
-
+        
         protected virtual void FixedUpdate()
         {
             CheckGround();
@@ -57,7 +60,9 @@ namespace Atypiki.Core.Core.MovementState
         protected abstract void ApplyVelocity(Vector3 velocity, Quaternion rotation);
         protected abstract void ChangeGounded(bool IsGrounded);
 
-        //might need to instantiate SO here to avoid issue with shared datas
+        /*
+         * Add state to the list and initialize it.
+         */
         public void AddState(IMovementState<T> orbitalMovementState)
         {
             if (_movementStates.Contains(orbitalMovementState))
@@ -68,6 +73,9 @@ namespace Atypiki.Core.Core.MovementState
             orbitalMovementState.Initialize(GetController());
         }
 
+        /*
+         * Remove state and uninitialize it
+         */
         public void RemoveState(IMovementState<T> orbitalMovementState)
         {
             if (_movementStates.Remove(orbitalMovementState))
@@ -76,6 +84,9 @@ namespace Atypiki.Core.Core.MovementState
             }
         }
 
+        /*
+         * Get the state with the higher priority
+         */
         private void SelectNextState()
         {
             IMovementState<T> nextMovementState = null;

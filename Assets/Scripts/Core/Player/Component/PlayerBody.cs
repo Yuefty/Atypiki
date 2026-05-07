@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Atypiki.Core
 {
+    /*
+     * This class is responsible of monitoring the body's states and let other classes know about it.
+     */
     public class PlayerBody : PlayerComponent
     {
         [SerializeField] 
@@ -21,20 +24,33 @@ namespace Atypiki.Core
  
         //private IInteractable interactable;
         
-        public void ApplyVelocity(Vector3 newPosition, Quaternion currentRotation)
+        /*
+         * Function that allow to apply movement on the character only when they're unlocked
+         * input : newPosition : the position the character will move to
+         * newRotation : the rotation the character will rotate too
+         */
+        public void ApplyVelocity(Vector3 newPosition, Quaternion newRotation)
         {
+            //Check if character is locked
             if (CanMove)
             {
                 rb.MovePosition(newPosition);
-                rb.MoveRotation(currentRotation);
+                rb.MoveRotation(newRotation);
             }
         }
 
+        /*
+         * Function that lock and unlock the character
+         */
         public void SetCanMove(bool canMove)
         {
             CanMove = canMove;
         }
         
+        /*
+         * Function that handle ground state and
+         * call event for other element to track the character ground state
+         */
         public void CheckGround(bool isGrounded)
         {
             if (IsGrounded != isGrounded)

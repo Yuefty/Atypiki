@@ -34,6 +34,7 @@ namespace Atypiki.Core.Core.MovementState.State
         public override void Initialize(PlayerMovement playerMovement)
         {
             base.Initialize(playerMovement);
+            //retrieve the input action linked to this movement
             jumpInput = playerMovement.PlayerInput.actions.FindActionMap("Player").FindAction("Jump");
             jumpInput.performed += OnJumpInputPerformed;
         }
@@ -60,6 +61,9 @@ namespace Atypiki.Core.Core.MovementState.State
             currentJumpBuffer = 0;
         }
 
+        /*
+         * Handle multiple jump
+         */
         public override void PreUpdate(PlayerMovement playerMovement)
         {
             base.PreUpdate(playerMovement);
@@ -93,7 +97,6 @@ namespace Atypiki.Core.Core.MovementState.State
 
             currentJumpTime += Time.deltaTime;
 
-            //Debug.Log($"{currentJumpCount}/{currentJumpTime} => {currentJumpForce}");
             return new Vector3()
             {
                 x = velocity.x,
@@ -109,7 +112,6 @@ namespace Atypiki.Core.Core.MovementState.State
             {
                 currentJumpCount++;
                 currentJumpTime = 0;
-                //Debug.Break();
             }
         }
         
