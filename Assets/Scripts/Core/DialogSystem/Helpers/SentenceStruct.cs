@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Atypiki.Core.Core.DialogSystem.Helpers
 {
-    public struct Sentence
+    [System.Serializable]
+    public struct SentenceStruct
     {
         [TextArea] public string Text;
         public CharacterData CharacterData;

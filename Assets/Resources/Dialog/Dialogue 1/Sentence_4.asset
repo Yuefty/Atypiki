@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34253ad270a6450b97647c919ccab793, type: 3}
+  m_Name: Sentence_4
+  m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.DialogSystem.SentenceNodeData
+  DialogData: {fileID: 11400000, guid: 4dd668eb645cf3a4eae00c894c53c379, type: 2}
+  automaticSkip: 1
+  sentenceStruct:
+    Text: 'A la prochaine '
+    CharacterData: {fileID: 11400000, guid: 741889218e183ea4ebe8c21f870c4174, type: 2}
+    expression: 0
+  ChildNode: {fileID: 0}

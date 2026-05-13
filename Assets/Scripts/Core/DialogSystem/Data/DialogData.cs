@@ -7,5 +7,10 @@ namespace Atypiki.Core.Core.DialogSystem
     public class DialogData : ScriptableObject
     {
         public List<NodeData> NodesList = new();
+
+        public NodeData GetFirstNode()
+        {
+            return NodesList.Count > 0 ? NodesList[0] : null;
+        }
     }
 }

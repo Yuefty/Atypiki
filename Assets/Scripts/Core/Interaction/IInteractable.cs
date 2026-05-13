@@ -1,7 +1,7 @@
 ﻿namespace Atypiki.Core.Core.Interaction
 {
-    public interface Iinteractable
+    public interface IInteractable
     {
-        
+        public void Interact();
     }
 }

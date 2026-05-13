@@ -1,4 +1,4 @@
-﻿using Atypiki.Core.Core.MovementState;
+﻿ using Atypiki.Core.Core.MovementState;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

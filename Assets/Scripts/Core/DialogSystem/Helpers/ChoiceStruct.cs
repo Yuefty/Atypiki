@@ -1,7 +1,11 @@
-﻿namespace Atypiki.Core.Core.DialogSystem.Helpers
+﻿using UnityEngine;
+
+namespace Atypiki.Core.Core.DialogSystem.Helpers
 {
-    public struct AnswerStruct
+    [System.Serializable]
+    public struct ChoiceStruct
     {
-        public string choice;
+        [TextArea] public string choiceText;
+        public NodeData ChildNode;
     }
 }

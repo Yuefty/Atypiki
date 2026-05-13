@@ -2,6 +2,8 @@
 {
     public enum Expression
     {
-        
+        neutral,
+        happy,
+        sad
     }
 }

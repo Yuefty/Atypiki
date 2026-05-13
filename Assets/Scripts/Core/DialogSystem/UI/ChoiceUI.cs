@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Atypiki.Core.Core.DialogSystem.UI
 {
-    public class AnswerUI : MonoBehaviour
+    public class ChoiceUI : MonoBehaviour
     {
         [SerializeField] private Button _answerButtonPrefab;
         [SerializeField] private Transform _parentTransform;
@@ -15,17 +15,8 @@ namespace Atypiki.Core.Core.DialogSystem.UI
         private readonly List<TextMeshProUGUI> _buttonTexts = new();
         private GameObject answerPanel;
         
-        /// <summary>
-        /// Returns the total number of buttons
-        /// </summary>
-        /// <returns>The number of buttons</returns>
-        public int GetButtonCount() => _buttons.Count;
         
-        /// <summary>
-        /// Instantiate answer buttons based on max amount of answer buttons
-        /// </summary>
-        /// <param name="maxAmountOfAnswerButtons"></param>
-        public void SetUpButtons(int maxAmountOfAnswerButtons)
+        public void InitButtons(int maxAmountOfAnswerButtons)
         {
             DeleteAllExistingButtons();
             
@@ -38,56 +29,29 @@ namespace Atypiki.Core.Core.DialogSystem.UI
             }
         }
 
-        /// <summary>
-        /// Returning button by index
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
+        public void SetButton(int index, string text,  UnityAction action)
+        {
+            GetButtonTextByIndex(index).SetText(text);
+            AddButtonOnClickListener(index, action);
+        }
+    
         public Button GetButtonByIndex(int index) => _buttons[index];
-
-        /// <summary>
-        /// Returning button text bu index
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
+    
         public TextMeshProUGUI GetButtonTextByIndex(int index) => _buttonTexts[index];
 
-        /// <summary>
-        /// Setting UnityAction to button onClick event by index 
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="action"></param>
+       /*
+        * Add listener to a specific button
+        */
         public void AddButtonOnClickListener(int index, UnityAction action) => _buttons[index].onClick.AddListener(action);
 
-        // ReSharper disable Unity.PerformanceAnalysis
-        /// <summary>
-        /// Enable certain amount of buttons
-        /// </summary>
-        /// <param name="amount"></param>
-        public void EnableCertainAmountOfButtons(int amount)
-        {
-            if (_buttons.Count == 0)
-            {
-                Debug.LogWarning("Please assign button list!");
-                return;
-            }
-
-            for (int i = 0; i < amount; i++)
-                _buttons[i].gameObject.SetActive(true);
-        }
-
-        /// <summary>
-        /// Disable all buttons
-        /// </summary>
+        
         public void DisableAllButtons()
         {
             foreach (Button button in _buttons)
                 button.gameObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Removes all existing buttons, used before setup
-        /// </summary>
+    
         private void DeleteAllExistingButtons()
         {
             if (_buttons.Count > 0)

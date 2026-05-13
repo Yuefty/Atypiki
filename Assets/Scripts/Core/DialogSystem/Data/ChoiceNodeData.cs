@@ -1,39 +1,31 @@
 ﻿using System.Collections.Generic;
+using Atypiki.Core.Core.DialogSystem.Helpers;
 using UnityEngine;
 
 namespace Atypiki.Core.Core.DialogSystem
 {
-    public class AnswerNodeData : NodeData
+    [CreateAssetMenu(fileName = "Choice", menuName = "Atypiki/Dialog/Node/ChoiceData", order = 0)]
+    public class ChoiceNodeData : NodeData
     {
         
-        private int _amountOfAnswers = 1;
+        private int amountOfAnswers = 1;
 
-        public List<string> Answers = new();
-        public List<string> AnswerKeys = new();
-        
-        public List<NodeData> ChildNodes = new();
-
-        private const float LabelFieldSpace = 18f;
-        private const float TextFieldWidth = 120f;
-
-        private const float AnswerNodeWidth = 190f;
-        private const float AnswerNodeHeight = 115f;
-
-        private float _currentAnswerNodeHeight = 115f;
-        private const float AdditionalAnswerNodeHeight = 20f;
-
-        public int nextNodeIndex;
+        public List<ChoiceStruct> Answers = new();
+        public int choiceIndex;
         
         public override NodeData GetNextNode()
         {
-            return ChildNodes[nextNodeIndex];
+            return Answers[choiceIndex].ChildNode;
         }
 
-        public override Awaitable ProcessNode(DialogBehaviour dialogBehaviour)
+        public override void ProcessNode(DialogBehaviour dialogBehaviour)
         {
-            throw new System.NotImplementedException();
+            dialogBehaviour.InitChoice(Answers.Count);
+            for (int i = 0; i < Answers.Count; i++)
+            {
+                dialogBehaviour.AddChoice(i, GetAnswerText(i),()=> ChoiceSelection(i));
+            }
         }
-        
 
         [SerializeField, HideInInspector]
         private bool hasInitialized = false;
@@ -44,7 +36,12 @@ namespace Atypiki.Core.Core.DialogSystem
             if (index < 0 || index >= Answers.Count)
                 return string.Empty;
             
-            return Answers[index];
+            return Answers[index].choiceText;
+        }
+        
+        public void ChoiceSelection(int index)
+        {
+            choiceIndex =  index;
         }
     }
 }
