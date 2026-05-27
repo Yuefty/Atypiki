@@ -55,7 +55,7 @@ namespace Atypiki.Core.Core.DialogSystem.UI
         /*
          * Hide the dialog box when choosing an answer
          */
-        public void OnChoiceNode(int i)
+        public void OnNextNode()
         {
             textSlot.SetActive(false);
         }

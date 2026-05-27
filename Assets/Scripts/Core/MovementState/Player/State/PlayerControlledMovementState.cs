@@ -33,7 +33,7 @@ namespace Atypiki.Core.Core.MovementState.State
 
         /*
          * Function that get the new velocity
-         * based on the current velocity of the movement controller and the input
+         * based on the current velocity of the rigidbody and the input
          */
         public override Vector3 GetVelocity(PlayerMovement playerMovement, float deltaTime)
         {

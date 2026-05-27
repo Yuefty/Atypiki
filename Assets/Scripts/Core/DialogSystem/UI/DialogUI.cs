@@ -24,8 +24,9 @@ namespace Atypiki.Core.Core.DialogSystem.UI
             _dialogBehaviour.OnSentenceNode += sentenceUI.OnSentenceNode;
             _dialogBehaviour.OnChangeMaxVisibility += sentenceUI.ChangeMaxVisibility;
             _dialogBehaviour.OnSentenceSkipped += sentenceUI.ShowFullDialogText;
-            _dialogBehaviour.OnChoiceNode += sentenceUI.OnChoiceNode;
+            _dialogBehaviour.OnNextNode += sentenceUI.OnNextNode;
             
+            _dialogBehaviour.OnNextNode += choiceUI.DisableAllButtons;
             _dialogBehaviour.OnChoiceNode += choiceUI.InitButtons;
             _dialogBehaviour.OnAddChoice += choiceUI.SetButton;
             _dialogBehaviour.AddChoiceAction += choiceUI.AddButtonOnClickListener;
@@ -39,8 +40,9 @@ namespace Atypiki.Core.Core.DialogSystem.UI
             _dialogBehaviour.OnSentenceNode -= sentenceUI.OnSentenceNode;
             _dialogBehaviour.OnChangeMaxVisibility -= sentenceUI.ChangeMaxVisibility;
             _dialogBehaviour.OnSentenceSkipped -= sentenceUI.ShowFullDialogText;
-            _dialogBehaviour.OnChoiceNode -= sentenceUI.OnChoiceNode;
+            _dialogBehaviour.OnNextNode -= sentenceUI.OnNextNode;
             
+            _dialogBehaviour.OnNextNode -= choiceUI.DisableAllButtons;
             _dialogBehaviour.OnChoiceNode -= choiceUI.InitButtons;
             _dialogBehaviour.OnAddChoice -= choiceUI.SetButton;
             _dialogBehaviour.AddChoiceAction -= choiceUI.AddButtonOnClickListener;

@@ -23,7 +23,8 @@ namespace Atypiki.Core.Core.DialogSystem
             dialogBehaviour.InitChoice(Answers.Count);
             for (int i = 0; i < Answers.Count; i++)
             {
-                dialogBehaviour.AddChoice(i, GetAnswerText(i),()=> ChoiceSelection(i));
+                int index = i;
+                dialogBehaviour.AddChoice(index, GetAnswerText(index),()=> ChoiceSelection(index));
             }
         }
 
@@ -41,6 +42,7 @@ namespace Atypiki.Core.Core.DialogSystem
         
         public void ChoiceSelection(int index)
         {
+            Debug.Log($"ChoiceSelection {index}");
             choiceIndex =  index;
         }
     }

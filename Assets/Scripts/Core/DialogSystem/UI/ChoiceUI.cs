@@ -63,5 +63,6 @@ namespace Atypiki.Core.Core.DialogSystem.UI
                 _buttonTexts.Clear();
             }
         }
+        
     }
 }

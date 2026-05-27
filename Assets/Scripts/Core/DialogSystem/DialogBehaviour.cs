@@ -14,21 +14,25 @@ namespace Atypiki.Core.Core.DialogSystem
         [field : SerializeField] public float typingSpeed { get; private set; }
         
         private bool _isDialogStarted;
-        private DialogData currentDialog;
-        private NodeData currentNode;
+        public DialogData CurrentDialog {get; private set;}
+        public NodeData CurrentNode {get; private set;}
         
         private bool _isCurrentSentenceTyping; // is the text currently being writen 
         private Coroutine TextWritingCoroutine;
         
+        //public event Action OnDialogStarted;
         public event Action OnDialogStarted;
         public event Action OnDialogFinished;
         
+        
+        public event Action OnNextNode;
         
         public event Action<CharacterData, string> OnSentenceNode;
         public event Action<int> OnChangeMaxVisibility;
         public event Action OnSentenceSkipped;
 
         public event Action<int> OnChoiceNode;
+        public event Action<string> OnChoiceMade;
         public event Action<int, string,  UnityAction> OnAddChoice; 
         public event Action<int, UnityAction> AddChoiceAction; 
 
@@ -44,13 +48,16 @@ namespace Atypiki.Core.Core.DialogSystem
             }
 
             OnDialogStarted?.Invoke();
-            currentDialog = dialogData;
-            currentNode = dialogData.GetFirstNode();
+            
+            Cursor.visible = true;
+            
+            CurrentDialog = dialogData;
+            CurrentNode = dialogData.GetFirstNode();
             
             
-            if (currentNode is not null)
+            if (CurrentNode is not null)
             {
-                currentNode.ProcessNode(this);
+                CurrentNode.ProcessNode(this);
             }
             else
             {
@@ -61,24 +68,27 @@ namespace Atypiki.Core.Core.DialogSystem
 
         public void ProcessNextNode()
         {
-            NodeData nextNode = currentNode.GetNextNode();
-
+            NodeData nextNode = CurrentNode.GetNextNode();
             if (nextNode is null)
             {
                 EndDialog();
             }
             else
             {
-                currentNode = nextNode;
-                currentNode.ProcessNode(this);
+                OnNextNode?.Invoke();
+                CurrentNode = nextNode;
+                CurrentNode.ProcessNode(this);
             }
         }
 
         public void EndDialog()
         {
             OnDialogFinished?.Invoke();
+            
+            
+            Cursor.visible = false;
             _isDialogStarted = false;
-            currentDialog = null;
+            CurrentDialog = null;
         }
         
         public void OnSentenceSkip(InputAction.CallbackContext context)
@@ -96,7 +106,7 @@ namespace Atypiki.Core.Core.DialogSystem
                 }
                 else
                 {
-                    if (currentNode.GetType() == typeof(SentenceNodeData))
+                    if (CurrentNode.GetType() == typeof(SentenceNodeData))
                     {
                         ProcessNextNode();
                     }

@@ -15,7 +15,7 @@ namespace Atypiki.Core
         private void Start()
         {
             // Lock cursor for TPS control
-            Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.lockState = CursorLockMode.Locked;
             // Hide the cursor
             Cursor.visible = false; 
         }
