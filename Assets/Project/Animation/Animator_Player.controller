@@ -42,8 +42,16 @@ BlendTree:
     m_DirectBlendParameter: Velocity
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -3908832224746243291, guid: f86d8306f4a706a4ab96ed22e6392fb2, type: 3}
+    m_Motion: {fileID: -5752362517632765381, guid: f86d8306f4a706a4ab96ed22e6392fb2, type: 3}
     m_Threshold: 0.01
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Velocity
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -3908832224746243291, guid: f86d8306f4a706a4ab96ed22e6392fb2, type: 3}
+    m_Threshold: 0.02
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -52,7 +60,7 @@ BlendTree:
   m_BlendParameter: Velocity
   m_BlendParameterY: Velocity
   m_MinThreshold: 0
-  m_MaxThreshold: 0.01
+  m_MaxThreshold: 0.02
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
@@ -178,7 +186,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: Jump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

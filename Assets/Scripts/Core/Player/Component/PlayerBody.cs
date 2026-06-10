@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 namespace Atypiki.Core
 {
     /*
-     * This class is responsible of monitoring the body's states and let other classes know about it.
+     * This class is responsible for monitoring the body's states and let other classes know about it.
      */
     public class PlayerBody : PlayerComponent
     {

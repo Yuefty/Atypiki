@@ -58,7 +58,7 @@ namespace Atypiki.Core.Core.MovementState
         private T GetController() => this as T;
         protected abstract Rigidbody GetRigidbody();
         protected abstract void ApplyVelocity(Vector3 velocity, Quaternion rotation);
-        protected abstract void ChangeGounded(bool IsGrounded);
+        protected abstract void ChangeGrounded(bool IsGrounded);
 
         /*
          * Add state to the list and initialize it.
@@ -228,11 +228,11 @@ namespace Atypiki.Core.Core.MovementState
                     IsGrounded = true;
                     GroundNormal = hit.normal;
                     GroundPosition = hit.point;
-                    ChangeGounded(IsGrounded);
+                    ChangeGrounded(IsGrounded);
                     return;
                 }
             }
-            ChangeGounded(IsGrounded);
+            ChangeGrounded(IsGrounded);
         }
         
         

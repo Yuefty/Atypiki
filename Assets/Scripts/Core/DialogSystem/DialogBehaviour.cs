@@ -46,14 +46,11 @@ namespace Atypiki.Core.Core.DialogSystem
                 Debug.LogWarning("Dialog Graph's node list is empty");
                 return;
             }
-
-            OnDialogStarted?.Invoke();
-            
             Cursor.visible = true;
-            
             CurrentDialog = dialogData;
             CurrentNode = dialogData.GetFirstNode();
             
+            OnDialogStarted?.Invoke();
             
             if (CurrentNode is not null)
             {
@@ -142,9 +139,14 @@ namespace Atypiki.Core.Core.DialogSystem
         public void AddChoice(int index, string choiceText, UnityAction action)
         {
             OnAddChoice?.Invoke(index, choiceText, action);
+            AddChoiceAction?.Invoke(index, OnSelectChoice);
             AddChoiceAction?.Invoke(index, ProcessNextNode);
         }
 
-        
+        private void OnSelectChoice()
+        {
+            ChoiceNodeData choiceNode = (ChoiceNodeData)CurrentNode;
+            OnChoiceMade?.Invoke(choiceNode.GetAnswerText(choiceNode.choiceIndex));
+        }
     }
 }

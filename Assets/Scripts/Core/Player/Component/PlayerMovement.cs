@@ -68,7 +68,7 @@ namespace Atypiki.Core
         /*
          * Change grounded state on the body
          */
-        protected override void ChangeGounded(bool isGrounded)
+        protected override void ChangeGrounded(bool isGrounded)
         {
             Manager.Body.CheckGround(isGrounded);
         }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cc21bda3ed4764b7420382d85ee367, type: 3}
   m_Name: Dialog_
   m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.DialogSystem.DialogData
+  DialogName: Rencontre avec Piky
   NodesList:
   - {fileID: 11400000, guid: 2a1e3a134b075b34fabda13dcbaf1943, type: 2}

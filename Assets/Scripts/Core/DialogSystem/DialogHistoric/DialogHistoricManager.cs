@@ -11,6 +11,8 @@ namespace Atypiki.Core.Core.DialogSystem.DialogHistoric
         
         public List<DialogHistoric> dialogHistorics { get; private set;}
         private DialogHistoric currentDialog;
+        
+        public event Action<DialogHistoric> OnAddDialog;
 
         private void Start()
         {
@@ -21,18 +23,21 @@ namespace Atypiki.Core.Core.DialogSystem.DialogHistoric
         {
             DialogBehaviour.OnDialogStarted += AddDialogHistoric;
             DialogBehaviour.OnSentenceNode += OnSentenceNode;
+            DialogBehaviour.OnChoiceMade += OnChoiceMade;
         }
 
         private void OnDisable()
         {
             DialogBehaviour.OnDialogStarted -= AddDialogHistoric;
             DialogBehaviour.OnSentenceNode -= OnSentenceNode;
+            DialogBehaviour.OnChoiceMade -= OnChoiceMade;
         }
 
         public void AddDialogHistoric()
         {
             currentDialog = new DialogHistoric(DialogBehaviour.CurrentDialog.DialogName);
             dialogHistorics.Add(currentDialog);
+            OnAddDialog?.Invoke(currentDialog);
         }
         
 
