@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.Player.Component
 {
     /*
      * This class allow access to PlayerManager

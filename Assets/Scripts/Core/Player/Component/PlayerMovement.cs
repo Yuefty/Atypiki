@@ -1,8 +1,9 @@
 ﻿using Atypiki.Core.Core.MovementState;
+using Atypiki.Core.Core.MovementState.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.Player.Component
 {
     /*
      * This class control movement for the player
@@ -68,7 +69,7 @@ namespace Atypiki.Core
         /*
          * Change grounded state on the body
          */
-        protected override void ChangeGounded(bool isGrounded)
+        protected override void ChangeGrounded(bool isGrounded)
         {
             Manager.Body.CheckGround(isGrounded);
         }

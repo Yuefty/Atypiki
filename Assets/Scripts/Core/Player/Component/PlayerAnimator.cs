@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Atypiki.Core.Player
+namespace Atypiki.Core.Core.Player.Component
 {
     public class PlayerAnimator : PlayerComponent
     {

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Atypiki.Core.Core.Player.Component;
+using UnityEngine;
 
-namespace Atypiki.Core.Core.MovementState.State
+namespace Atypiki.Core.Core.MovementState.Player.State
 {
     [CreateAssetMenu(fileName = "walkState", menuName = "Atypiki/Player/Run", order = 0)]
     public class PlayerRunState : PlayerControlledMovementState

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Atypiki.Core.Core.Player.Component;
+using UnityEngine;
 
-namespace Atypiki.Core.Core.MovementState.State
+namespace Atypiki.Core.Core.MovementState.Player.State
 {
     [CreateAssetMenu(fileName = "AirborneState", menuName = "Atypiki/Player/Airborne", order = 0)]
     public class PlayerAirborneState : PlayerControlledMovementState

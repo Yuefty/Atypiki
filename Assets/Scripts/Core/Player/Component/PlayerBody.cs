@@ -1,11 +1,12 @@
 ﻿using System;
-using DG.Tweening;
+using Atypiki.Core.Core.Interaction;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.Player.Component
 {
     /*
-     * This class is responsible of monitoring the body's states and let other classes know about it.
+     * This class is responsible for monitoring the body's states and let other classes know about it.
      */
     public class PlayerBody : PlayerComponent
     {
@@ -22,7 +23,7 @@ namespace Atypiki.Core
         public event Action OnInteract;
         public event Action<bool> OnInteractable;
  
-        //private IInteractable interactable;
+        private IInteractable interactable;
         
         /*
          * Function that allow to apply movement on the character only when they're unlocked
@@ -56,6 +57,59 @@ namespace Atypiki.Core
             if (IsGrounded != isGrounded)
                 OnChangedGrounded?.Invoke(IsGrounded);
             IsGrounded =  isGrounded;
+        }
+        
+        /*
+         * Check if we are in range for an interaction
+         */
+        private void OnTriggerEnter(Collider other)
+        {
+            IInteractable item = other.transform.GetComponent<IInteractable>();
+            if (item is not null && interactable is null)
+            {
+                interactable = item;
+                OnInteractable?.Invoke(true);
+            }
+        }
+
+        /*
+         * Check if we out of range of previous in range interaction
+         */
+        private void OnTriggerExit(Collider other)
+        {
+            IInteractable item = other.transform.GetComponent<IInteractable>();
+            if (item == interactable)
+            {
+                interactable = null;
+                OnInteractable?.Invoke(false);
+            }
+        }
+        
+        /*
+         * Check if we are in range for an interaction
+         */
+        private void OnTriggerStay(Collider other)
+        {
+            IInteractable item = other.transform.GetComponent<IInteractable>();
+            if (item == interactable)
+            {
+                interactable = item;
+                OnInteractable?.Invoke(true);
+            }
+        }
+        
+        /*
+         * If we are in range of interaction and player interact, then interaction is performed
+         */
+        public void Interact(InputAction.CallbackContext context)
+        {
+            if (interactable is not null && context.performed)
+            {
+                interactable.Interact();
+                OnInteract?.Invoke();
+                interactable = null;
+                OnInteractable?.Invoke(false);
+            }
         }
         
     }
