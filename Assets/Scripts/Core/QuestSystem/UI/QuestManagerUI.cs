@@ -30,6 +30,8 @@ namespace Atypiki.Core.Core.QuestSystem.UI
             QuestUI dialogHistoricUI = Instantiate(_questUIPrefab, _questUIparentTransform);
             dialogHistoricUI.Initialize(e.quest);
             _questUIs.Add(dialogHistoricUI);
+            
+            Debug.Log("Adding quest to UI");
         }
     }
 }
