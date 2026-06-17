@@ -65,6 +65,8 @@ namespace Atypiki.Core.Core.DialogSystem.DialogHistoric.UI
                 dialogHistoricSentenceUI.SetText(sentence.charName, sentence.dialogText);
                 _sentenceUis.Add(dialogHistoricSentenceUI);
             }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(
+                _dialogSentenceparentTransform.GetComponent<RectTransform>());
         }
         
         private void UnloadDialogHistoric()

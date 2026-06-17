@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Atypiki.Core.Core.Player.Component;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Atypiki.Core.Core.MovementState.State
+namespace Atypiki.Core.Core.MovementState.Player.State
 {
     public abstract class PlayerControlledMovementState : PlayerMovementState
     {

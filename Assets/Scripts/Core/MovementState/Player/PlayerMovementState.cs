@@ -1,7 +1,8 @@
 ﻿using Atypiki.Core.Core.MovementState.Interface;
+using Atypiki.Core.Core.Player.Component;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.MovementState
+namespace Atypiki.Core.Core.MovementState.Player
 {
     public abstract class PlayerMovementState : ScriptableObject, IMovementState<PlayerMovement>
     {

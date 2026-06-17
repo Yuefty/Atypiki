@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Atypiki.Core.Core.BusSystem;
+using Atypiki.Core.Core.BusSystem.Event;
+using Atypiki.Core.Core.DialogSystem.Data;
 using Atypiki.Core.Core.DialogSystem.Helpers;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,6 +19,7 @@ namespace Atypiki.Core.Core.DialogSystem
         private bool _isDialogStarted;
         public DialogData CurrentDialog {get; private set;}
         public NodeData CurrentNode {get; private set;}
+        public CharacterData CurrentCharacterData {get; private set;}
         
         private bool _isCurrentSentenceTyping; // is the text currently being writen 
         private Coroutine TextWritingCoroutine;
@@ -37,7 +41,7 @@ namespace Atypiki.Core.Core.DialogSystem
         public event Action<int, UnityAction> AddChoiceAction; 
 
 
-        public void StartDialog(DialogData dialogData)
+        public void StartDialog(DialogData dialogData, CharacterData characterData)
         {
             _isDialogStarted = true;
 
@@ -48,9 +52,11 @@ namespace Atypiki.Core.Core.DialogSystem
             }
             Cursor.visible = true;
             CurrentDialog = dialogData;
+            CurrentCharacterData = characterData;
             CurrentNode = dialogData.GetFirstNode();
             
             OnDialogStarted?.Invoke();
+            EventBus.Publish(new StartDialogEvent(CurrentCharacterData));
             
             if (CurrentNode is not null)
             {
@@ -80,8 +86,10 @@ namespace Atypiki.Core.Core.DialogSystem
 
         public void EndDialog()
         {
-            OnDialogFinished?.Invoke();
+            Debug.Log(CurrentCharacterData.displayName);
             
+            EventBus.Publish(new EndDialogEvent(CurrentCharacterData));
+            OnDialogFinished?.Invoke();
             
             Cursor.visible = false;
             _isDialogStarted = false;

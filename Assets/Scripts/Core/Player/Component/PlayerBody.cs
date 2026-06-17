@@ -1,10 +1,9 @@
 ﻿using System;
 using Atypiki.Core.Core.Interaction;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.Player.Component
 {
     /*
      * This class is responsible for monitoring the body's states and let other classes know about it.
@@ -65,7 +64,6 @@ namespace Atypiki.Core
          */
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("OnTriggerEnter");
             IInteractable item = other.transform.GetComponent<IInteractable>();
             if (item is not null && interactable is null)
             {
@@ -107,7 +105,6 @@ namespace Atypiki.Core
         {
             if (interactable is not null && context.performed)
             {
-                Debug.Log("we interact");
                 interactable.Interact();
                 OnInteract?.Invoke();
                 interactable = null;

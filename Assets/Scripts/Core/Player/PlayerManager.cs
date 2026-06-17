@@ -1,9 +1,8 @@
-﻿using System;
-using Atypiki.Core.Core.DialogSystem;
-using Atypiki.Core.Player;
+﻿using Atypiki.Core.Core.DialogSystem;
+using Atypiki.Core.Core.Player.Component;
 using UnityEngine;
 
-namespace Atypiki.Core 
+namespace Atypiki.Core.Core.Player 
 {
     public class PlayerManager : MonoBehaviour
     {

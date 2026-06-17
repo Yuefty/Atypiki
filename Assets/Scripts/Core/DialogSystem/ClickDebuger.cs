@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.DialogSystem
 {
     public class ClickDebuger : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using Atypiki.Core.Core.DialogSystem.Helpers;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem
+namespace Atypiki.Core.Core.DialogSystem.Data
 {
     [CreateAssetMenu(fileName = "Choice", menuName = "Atypiki/Dialog/Node/ChoiceData", order = 0)]
     public class ChoiceNodeData : NodeData
@@ -42,7 +42,6 @@ namespace Atypiki.Core.Core.DialogSystem
         
         public void ChoiceSelection(int index)
         {
-            Debug.Log($"ChoiceSelection {index}");
             choiceIndex =  index;
         }
     }

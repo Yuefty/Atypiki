@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sentence_4
   m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.DialogSystem.SentenceNodeData
   DialogData: {fileID: 11400000, guid: 4dd668eb645cf3a4eae00c894c53c379, type: 2}
-  automaticSkip: 1
+  automaticSkip: 0
   sentenceStruct:
     Text: 'A la prochaine '
     CharacterData: {fileID: 11400000, guid: 741889218e183ea4ebe8c21f870c4174, type: 2}

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Atypiki.Core.Core.DialogSystem.Data;
 using Atypiki.Core.Core.DialogSystem.Enum;
 using TMPro;
 using UnityEngine;

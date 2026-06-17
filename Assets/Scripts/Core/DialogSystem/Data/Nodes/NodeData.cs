@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem
+namespace Atypiki.Core.Core.DialogSystem.Data
 {
     
     public abstract class NodeData : ScriptableObject

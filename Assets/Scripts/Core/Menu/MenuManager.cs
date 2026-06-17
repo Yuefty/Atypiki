@@ -1,4 +1,5 @@
-﻿using PaulosMenuController;
+﻿using Atypiki.Core.Core.Player.Component;
+using PaulosMenuController;
 using UnityEngine;
 
 namespace Atypiki.Core.Core.Menu

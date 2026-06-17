@@ -1,5 +1,6 @@
 ﻿using System;
 using Atypiki.Core.Core.DialogSystem;
+using Atypiki.Core.Core.DialogSystem.Data;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Atypiki.Core.Core.Interaction
         [SerializeField] protected DialogBehaviour _dialogBehaviour;
         [SerializeField] protected DialogData _dialogGraph;
         [SerializeField] protected CinemachineCamera _camera;
+        
+        [SerializeField] protected CharacterData _characterData;
 
         private void OnEnable()
         {
@@ -23,12 +26,11 @@ namespace Atypiki.Core.Core.Interaction
 
         private void StartDialog()
         {
-            _dialogBehaviour.StartDialog(_dialogGraph);
+            _dialogBehaviour.StartDialog(_dialogGraph, _characterData);
         }
 
         public void Interact()
         {
-            Debug.Log("Interact");
             ChangeCameraPriority(20);
             StartDialog();
         }

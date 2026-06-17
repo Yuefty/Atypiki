@@ -11,11 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34253ad270a6450b97647c919ccab793, type: 3}
   m_Name: Sentence_3
-  m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.DialogSystem.SentenceNodeData
-  DialogData: {fileID: 11400000, guid: 4dd668eb645cf3a4eae00c894c53c379, type: 2}
-  automaticSkip: 1
+  m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.DialogSystem.Data.SentenceNodeData
+  DialogData: {fileID: 11400000, guid: d212e03e690a24347a00027a1091a180, type: 2}
+  automaticSkip: 0
   sentenceStruct:
-    Text: Tu es sur l'ile Atypiki pardis !
-    CharacterData: {fileID: 11400000, guid: 741889218e183ea4ebe8c21f870c4174, type: 2}
+    Text: Non merci
+    CharacterData: {fileID: 11400000, guid: 1624115aa3c6ea644b577d8f988ce6ef, type: 2}
     expression: 0
-  ChildNode: {fileID: 11400000, guid: d0e4ffdb0cbc1c644a71460ef27aa75a, type: 2}
+  ChildNode: {fileID: 0}

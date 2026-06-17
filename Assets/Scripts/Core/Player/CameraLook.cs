@@ -1,7 +1,8 @@
+using Atypiki.Core.Core.Player.Component;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Atypiki.Core
+namespace Atypiki.Core.Core.Player
 {
     public class CameraLook : PlayerComponent
     {

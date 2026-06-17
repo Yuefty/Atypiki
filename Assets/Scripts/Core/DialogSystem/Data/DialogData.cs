@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem
+namespace Atypiki.Core.Core.DialogSystem.Data
 {
     [CreateAssetMenu(fileName = "Dialog_", menuName = "Atypiki/Dialog/DialogNode", order = 0)]
     public class DialogData : ScriptableObject

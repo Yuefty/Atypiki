@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Atypiki.Core.Core.DialogSystem.Data;
 using UnityEngine;
 
 namespace Atypiki.Core.Core.DialogSystem.DialogHistoric
