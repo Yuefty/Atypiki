@@ -1,10 +1,9 @@
 ﻿using Atypiki.Core.Core.BusSystem;
 using Atypiki.Core.Core.BusSystem.Event;
 using Atypiki.Core.Core.QuestSystem.Data;
-using UnityEditor.Graphs;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem.Data
+namespace Atypiki.Core.Core.DialogSystem.Data.Nodes
 {
     [CreateAssetMenu(fileName = "Quest", menuName = "Atypiki/Dialog/Node/QuestNodeData", order = 0)]
     public class QuestNodeData : NodeData

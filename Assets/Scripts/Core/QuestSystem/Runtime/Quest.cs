@@ -27,20 +27,22 @@ namespace Atypiki.Core.Core.QuestSystem.Runtime
 
         public void Initialize()
         {
-            EventBus.Subscribe<CompleteObjectiveQuestEvent>(OnCompleted);
+            EventBus.Subscribe<CompleteObjectiveQuestEvent>(OnObjectiveCompleted);
         }
 
-        public void OnCompleted(CompleteObjectiveQuestEvent e)
+        public void OnObjectiveCompleted(CompleteObjectiveQuestEvent e)
         {
+            if(!Objectives.Contains(e.questObjective))
+                return;
+            
             foreach (QuestObjective objective in Objectives)
             {
                 if (!objective.IsCompleted)
                     return;
             }
-            
             IsCompleted = true;
             EventBus.Publish(new CompleteQuestEvent(this));
-            EventBus.Unsubscribe<CompleteObjectiveQuestEvent>(OnCompleted);
+            EventBus.Unsubscribe<CompleteObjectiveQuestEvent>(OnObjectiveCompleted);
         }
     }
 }

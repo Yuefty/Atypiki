@@ -1,6 +1,6 @@
 ﻿using Atypiki.Core.Core.BusSystem;
 using Atypiki.Core.Core.BusSystem.Event;
-using Atypiki.Core.Core.DialogSystem.Data;
+using Atypiki.Core.Core.NPC;
 using Atypiki.Core.Core.QuestSystem.Data;
 using UnityEngine;
 
@@ -17,7 +17,6 @@ namespace Atypiki.Core.Core.QuestSystem.Runtime.QuestObjectives
 
         public override void Initialize()
         {
-            Debug.Log("we are initializing the quest talk objective");
             EventBus.Subscribe<EndDialogEvent>(OnNpcTalk);
         }
 
@@ -27,12 +26,8 @@ namespace Atypiki.Core.Core.QuestSystem.Runtime.QuestObjectives
          */
         public void OnNpcTalk(EndDialogEvent e)
         {
-            Debug.Log("we have finish talking");
-            
             if(NpcId != e.characterData)
                 return;
-            
-            Debug.Log("we have talk to the right npc");
             
             IsObjectiveCompleted();
             EventBus.Unsubscribe<EndDialogEvent>(OnNpcTalk);

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Atypiki.Core.Core.BusSystem.Event
 {
+    /*
+     * Struct for new quest event
+     */
     public struct NewQuestEvent
     {
         public QuestData quest;
@@ -15,6 +18,9 @@ namespace Atypiki.Core.Core.BusSystem.Event
         }
     }
     
+    /*
+     * Struct for completion of a quest event
+     */
     public struct CompleteQuestEvent
     {
         public Quest quest;
@@ -25,6 +31,9 @@ namespace Atypiki.Core.Core.BusSystem.Event
         }
     }
     
+    /*
+     * Struct for completion of an objective of a quest event
+     */
     public struct CompleteObjectiveQuestEvent
     {
         public QuestObjective questObjective;

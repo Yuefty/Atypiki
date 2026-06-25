@@ -2,7 +2,7 @@
 using Atypiki.Core.Core.DialogSystem.Helpers;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem.Data
+namespace Atypiki.Core.Core.DialogSystem.Data.Nodes
 {
     [CreateAssetMenu(fileName = "Choice", menuName = "Atypiki/Dialog/Node/ChoiceData", order = 0)]
     public class ChoiceNodeData : NodeData
