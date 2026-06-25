@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d70d26e06d14ed6b3cde2706dd4a4c8, type: 3}
-  m_Name: QuestTalkObjective
+  m_Name: QuestTalkObjective 1
   m_EditorClassIdentifier: Atypiki.Core::Atypiki.Core.Core.QuestSystem.Data.QuestTalkObjectiveData
   objectiveName: ' '
-  description: 
+  description: "aller parler \xE0 Piki encore plus"
   NpcId: {fileID: 11400000, guid: 741889218e183ea4ebe8c21f870c4174, type: 2}

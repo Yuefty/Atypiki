@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Atypiki.Core.Core.DialogSystem.Data;
 using Atypiki.Core.Core.DialogSystem.Enum;
+using Atypiki.Core.Core.NPC;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;

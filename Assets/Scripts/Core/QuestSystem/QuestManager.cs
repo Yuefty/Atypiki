@@ -39,6 +39,7 @@ namespace Atypiki.Core.Core.QuestSystem
 
         public void OnCompletedQuest(CompleteQuestEvent e)
         {
+            Debug.Log("Quest '" + e.quest.Definition.questName + "' has been completed");
             completedQuests.Add(e.quest);
             onGoingQuests.Remove(e.quest);
         }

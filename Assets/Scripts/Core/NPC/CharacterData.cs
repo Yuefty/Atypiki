@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem.Data
+namespace Atypiki.Core.Core.NPC
 {
     [CreateAssetMenu(fileName = "Character_", menuName = "Atypiki/Dialog/CharacterData", order = 0)]
     public class CharacterData : ScriptableObject

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem.Data
+namespace Atypiki.Core.Core.DialogSystem.Data.Nodes
 {
     
     public abstract class NodeData : ScriptableObject

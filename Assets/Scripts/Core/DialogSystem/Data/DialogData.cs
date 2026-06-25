@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Atypiki.Core.Core.DialogSystem.Data.Nodes;
 using UnityEngine;
 
 namespace Atypiki.Core.Core.DialogSystem.Data

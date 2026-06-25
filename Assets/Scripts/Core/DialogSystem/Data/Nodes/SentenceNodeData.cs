@@ -1,7 +1,7 @@
 ﻿using Atypiki.Core.Core.DialogSystem.Helpers;
 using UnityEngine;
 
-namespace Atypiki.Core.Core.DialogSystem.Data
+namespace Atypiki.Core.Core.DialogSystem.Data.Nodes
 {
     [CreateAssetMenu(fileName = "Sentence", menuName = "Atypiki/Dialog/Node/SentenceData", order = 0)]
     public class SentenceNodeData : NodeData

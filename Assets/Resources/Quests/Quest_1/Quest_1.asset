@@ -16,3 +16,4 @@ MonoBehaviour:
   questName: Rencontrer Piki
   objectives:
   - {fileID: 11400000, guid: 84c1112d155e0df44b9f3ef44d62db7d, type: 2}
+  - {fileID: 11400000, guid: 57414c533711cc546a42e44b4b40f754, type: 2}

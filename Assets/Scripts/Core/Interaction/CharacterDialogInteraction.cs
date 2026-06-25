@@ -1,6 +1,7 @@
 ﻿using System;
 using Atypiki.Core.Core.DialogSystem;
 using Atypiki.Core.Core.DialogSystem.Data;
+using Atypiki.Core.Core.NPC;
 using Unity.Cinemachine;
 using UnityEngine;
 
